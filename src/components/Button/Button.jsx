@@ -1,7 +1,9 @@
 import "./Button.css";
 
-const Button = () => {
-  return <button className="btn"></button>;
+const Button = (props) => {
+  return <button className="btn"
+      style={{backgroundColor:props.color}}
+    >{props.buttonText}</button>;
 };
 
 export default Button;
