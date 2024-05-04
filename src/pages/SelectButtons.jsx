@@ -2,15 +2,22 @@ import { useState } from "react";
 import Button from "../components/Button/Button";
 
 const SelectButtons = () => {
-const [btn,setcolor] = useState('')
+const [color,setcolor] = useState("default")
+
+const handleClick = (newColor)=>{
+  setcolor(newColor);
+}
 
   return (<div className="selectBtns">
-      <Button buttonText="Primary" onclick={()=>{
-        return color="red";
-      }}></Button>
-      <Button buttonText="Secondary"></Button>
-      <Button buttonText="Default"></Button>
-
+      <Button buttonText="Primary"
+      color={color === "Primary" ? "pink" : "blue"} 
+      onClick={() => handleClick("Primary")}></Button>
+      <Button buttonText="Secondary"
+      color={color === "Secondary" ? "green" : "blue"} 
+      onClick={() => handleClick("Secondary")}></Button>
+      <Button buttonText="Default"
+      color={color === "Default" ? "red" : "blue"} 
+      onClick={() => handleClick("Default")}></Button>
   </div>);
 };
 
